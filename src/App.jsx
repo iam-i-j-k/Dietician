@@ -590,10 +590,10 @@ const App = () => {
             </div>
             <div className="flex gap-4">
               <div className="w-10 h-10 bg-linear-to-tr from-yellow-400 via-pink-500 to-purple-500 rounded-full flex items-center justify-center cursor-pointer">
-                <span className="text-white text-xl"><img src="/instagram.png" alt="Instagram" /></span>
+                <a href="https://www.instagram.com/dietitian.girija" target="_blank"><span className="text-white text-xl"><img src="/instagram.png" alt="Instagram" /></span></a>
               </div>
               <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center cursor-pointer">
-                <span className="text-white text-xl"><img src="/whatsapp.png" alt="WhatsApp" /></span>
+                <a href="https://wa.me/919603560345" target="_blank"><span className="text-white text-xl"><img src="/whatsapp.png" alt="WhatsApp" /></span></a>
               </div>
             </div>
           </div>
