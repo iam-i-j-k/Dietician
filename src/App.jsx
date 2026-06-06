@@ -421,7 +421,7 @@ const App = () => {
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
           <div className="bg-[#8b9c92] text-white p-8 rounded-2xl relative shadow-md">
             <div className="w-16 h-16 bg-[#bc716e] rounded-full flex items-center justify-center text-2xl font-bold absolute -top-8 left-1/2 transform -translate-x-1/2 border-4 border-[#fbf9f6]">R</div>
-            <h4 className="text-center font-semibold mt-6 mb-4">Ramya</h4>
+            <h4 className="text-center font-semibold mt-6 mb-4">Harita</h4>
             <p className="text-sm text-center italic mb-6">
               "Girija diet helped me to lead a healthy life, actually am a post kidney transplanted person with huge medicine usage on daily basis, and was overweight since many years. The care and support girija gave me was truly amazing, i lost 17kgs and maintaining the same (which is very important) Shen never put me on crash diet, inspire felt tummy full.
               <br/><br/>
@@ -443,7 +443,7 @@ const App = () => {
 
           <div className="bg-[#8b9c92] text-white p-8 rounded-2xl relative shadow-md mt-8">
             <div className="w-16 h-16 bg-[#a8cc66] rounded-full flex items-center justify-center text-2xl font-bold absolute -top-8 left-1/2 transform -translate-x-1/2 border-4 border-[#fbf9f6]">M</div>
-            <h4 className="text-center font-semibold mt-6 mb-4">Mounika</h4>
+            <h4 className="text-center font-semibold mt-6 mb-4">Swathi</h4>
             <p className="text-sm text-center italic mb-6">
               "The personalized nutrition program transformed my health by addressing my thyroid issues, irregular periods, and weight, leading to remarkable improvements and immense joy for confident, energetic, and healthier. and I wholeheartedly recommend this program to anyone facing similar changes."
             </p>
