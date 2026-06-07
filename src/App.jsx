@@ -606,7 +606,7 @@ const App = () => {
               <li><a href="#" className="hover:underline">Services</a></li>
               <li><a href="#" className="hover:underline">Testimonials</a></li>
               <li><a href="#" className="hover:underline">FAQ</a></li>
-              <li><a href="#" className="hover:underline">Book now</a></li>
+              <li><a href="#" className="hover:underline">Book</a></li>
             </ul>
           </div>
         </div>
