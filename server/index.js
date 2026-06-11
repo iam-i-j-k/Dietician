@@ -3,6 +3,10 @@ const express = require("express");
 const nodemailer = require("nodemailer");
 const cors = require("cors");
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://girija-dietician.vercel.app",
+];
 const app = express();
 app.use(cors({
   origin: (origin, callback) => {
