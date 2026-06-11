@@ -6,6 +6,8 @@ const cors = require("cors");
 const allowedOrigins = [
   "http://localhost:5173",
   "https://girija-dietician.vercel.app",
+  // Add deployed API origin so browser requests from that host aren't blocked
+  "https://dietician-cafh.onrender.com",
 ];
 const app = express();
 app.use(cors({
@@ -28,6 +30,22 @@ const transporter = nodemailer.createTransport({
     user: process.env.GMAIL_USER,       // your Gmail: dietitiangirija@gmail.com
     pass: process.env.GMAIL_APP_PASS,   // Gmail App Password (NOT your login password)
   },
+});
+
+// Warn early if required env vars are missing
+if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASS) {
+  console.error(
+    "Missing GMAIL_USER or GMAIL_APP_PASS environment variables. Mail sending will fail."
+  );
+}
+
+// Verify transporter at startup so deployment logs show mailer readiness
+transporter.verify((err, success) => {
+  if (err) {
+    console.error("Nodemailer verification failed:", err);
+  } else {
+    console.log("Nodemailer ready to send messages");
+  }
 });
 
 app.post("/api/contact", async (req, res) => {
@@ -64,7 +82,9 @@ app.post("/api/contact", async (req, res) => {
     res.json({ success: true, message: "Email sent successfully." });
   } catch (err) {
     console.error("Mail error:", err);
-    res.status(500).json({ error: "Failed to send email. Try again." });
+    // Include a small hint when not in production to aid debugging
+    const safeDetails = process.env.NODE_ENV === "production" ? undefined : err && err.message;
+    res.status(500).json({ error: "Failed to send email. Try again.", details: safeDetails });
   }
 });
 
