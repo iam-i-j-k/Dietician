@@ -4,7 +4,18 @@ const nodemailer = require("nodemailer");
 const cors = require("cors");
 
 const app = express();
-app.use(cors({ origin: process.env.CLIENT_ORIGIN || "http://localhost:5173" }));
+app.use(cors({
+  origin: (origin, callback) => {
+    // Allow requests with no origin (Postman, curl) or matched origins
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error(`CORS blocked: ${origin}`));
+    }
+  },
+  methods: ["POST"],
+  allowedHeaders: ["Content-Type"],
+}));
 app.use(express.json());
 
 const transporter = nodemailer.createTransport({
