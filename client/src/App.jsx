@@ -46,7 +46,7 @@ const App = () => {
     }
     setFormStatus("sending");
     try {
-      const res = await fetch("https://dietician-cafh.onrender.com/api/contact", {
+      const res = await fetch("http://localhost:3001/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -66,23 +66,23 @@ const App = () => {
   };
 
   return (
-    <div className="font-gelasio text-gray-800 bg-[#fbf9f6] min-h-screen overflow-x-hidden">
+    <div id="home" className="font-gelasio text-gray-800 bg-[#fbf9f6] min-h-screen overflow-x-hidden">
       <nav className="flex items-center justify-between px-4 md:px-8 py-4 bg-white shadow-sm sticky top-0 z-50">
         <div className="flex items-center gap-2">
           <img src="/icon.png" alt="Dt. Girija Icon" className="h-10 md:h-12" />
           <img src="/logo.png" alt="Dt. Girija Logo" className="h-10 md:h-12" />
         </div>
         <div className="hidden md:flex gap-6 text-sm font-medium">
-          <a href="#" className="hover:text-green-700">Home</a>
-          <a href="#" className="hover:text-green-700">About me</a>
-          <a href="#" className="hover:text-green-700">Services</a>
-          <a href="#" className="hover:text-green-700">Testimonials</a>
-          <a href="#" className="hover:text-green-700">FAQ</a>
-          <a href="#" className="hover:text-green-700">Contact</a>
+          <a href="#home" className="hover:text-green-700">Home</a>
+          <a href="#about" className="hover:text-green-700">About me</a>
+          <a href="#programs" className="hover:text-green-700">Services</a>
+          <a href="#testimonials" className="hover:text-green-700">Testimonials</a>
+          <a href="#faq" className="hover:text-green-700">FAQ</a>
+          <a href="#contact" className="hover:text-green-700">Contact</a>
         </div>
-        <button className="bg-[#3a5a40] text-white px-4 md:px-6 py-2 rounded-full text-sm font-semibold hover:bg-[#2c4430] transition-colors">
+        <a href="#contact" className="bg-[#3a5a40] text-white px-4 md:px-6 py-2 rounded-full text-sm font-semibold hover:bg-[#2c4430] transition-colors">
           Book now
-        </button>
+        </a>
       </nav>
 
       <section className="bg-[url('/bg.png')] px-4 md:px-8 py-10 md:py-16 flex flex-col md:flex-row items-center mx-auto gap-8 md:gap-12">
@@ -94,13 +94,13 @@ const App = () => {
             Science-backed, personalized nutrition therapy for metabolic, hormonal, and reproductive health. Home food. Real support. Real results.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-            <button className="bg-[#3a5a40] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#2c4430] transition-colors flex items-center justify-center gap-2">
+            <a href="#contact" className="bg-[#3a5a40] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#2c4430] transition-colors flex items-center justify-center gap-2">
               Book a Free Discovery Call
               <span>→</span>
-            </button>
-            <button className="border border-gray-400 text-gray-700 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors w-full sm:w-auto">
+            </a>
+            <a href="#programs" className="border border-gray-400 text-gray-700 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors w-full sm:w-auto">
               View Programs
-            </button>
+            </a>
           </div>
         </div>
         <div className="w-full md:w-1/2 mt-8 md:mt-0 relative">
@@ -108,7 +108,7 @@ const App = () => {
         </div>
       </section>
 
-      <section className="px-4 md:px-8 py-10 md:py-16 bg-[url('/bg.png')] mx-auto flex flex-col md:flex-row gap-8 md:gap-12 items-center">
+      <section id="about" className="px-4 md:px-8 py-10 md:py-16 bg-[url('/bg.png')] mx-auto flex flex-col md:flex-row gap-8 md:gap-12 items-center">
         <div className="w-full md:w-5/12">
           <div className="rounded-t-full pt-4 px-4">
             <img src="/girija.png" alt="Dt. Girija" className="w-full h-auto" />
@@ -233,7 +233,7 @@ const App = () => {
         </div>
       </section>
 
-      <section className="px-4 md:px-8 py-10 md:py-16 mx-auto text-center bg-[url('/bg.png')]">
+      <section id="programs" className="px-4 md:px-8 py-10 md:py-16 mx-auto text-center bg-[url('/bg.png')]">
         <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-wide mb-2">Our Programs</h2>
         <p className="text-lg md:text-xl text-gray-600 mb-6">Three Programs. One Goal: Your Health.</p>
         <p className="text-xs md:text-sm text-gray-500 mb-8 md:mb-12 max-w-3xl mx-auto px-4 md:px-0">
@@ -449,7 +449,7 @@ const App = () => {
         </div>
       </section>
 
-      <section className="bg-[url('/bg.png')] px-4 md:px-8 py-10 md:py-16">
+      <section id="testimonials" className="bg-[url('/bg.png')] px-4 md:px-8 py-10 md:py-16">
         <div className="max-w-6xl mx-auto text-center mb-16 md:mb-12">
           <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-wide mb-2">Testimonials</h2>
           <p className="text-lg md:text-xl text-gray-600">Real results from real people who transformed their health</p>
@@ -525,7 +525,7 @@ const App = () => {
         </div>
       </section>
 
-      <section className="px-4 md:px-8 py-10 md:py-16 bg-[url('/bg.png')]">
+      <section id="faq" className="px-4 md:px-8 py-10 md:py-16 bg-[url('/bg.png')]">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-wide text-center mb-2 md:mb-4">Frequently Asked Questions</h2>
           <p className="text-center text-gray-600 mb-8 md:mb-12">Everything you need to know about nutrition counseling</p>
@@ -559,7 +559,7 @@ const App = () => {
         </div>
       </section>
 
-      <section className="px-4 md:px-8 py-10 md:py-16 bg-[url('/bg.png')]">
+      <section id="contact" className="px-4 md:px-8 py-10 md:py-16 bg-[url('/bg.png')]">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-2 md:mb-4">Let's Start Your Journey</h2>
           <p className="text-sm md:text-base text-gray-700 mb-8 md:mb-10">Ready to take the first step? Book a free consultation to discuss your goals</p>
@@ -690,12 +690,12 @@ const App = () => {
           <div className="w-full md:w-1/4 text-center md:text-left">
             <h4 className="font-bold text-lg mb-4">Quick links</h4>
             <ul className="space-y-2 md:space-y-3 text-sm">
-              <li><a href="#" className="hover:underline">Home</a></li>
-              <li><a href="#" className="hover:underline">About us</a></li>
-              <li><a href="#" className="hover:underline">Services</a></li>
-              <li><a href="#" className="hover:underline">Testimonials</a></li>
-              <li><a href="#" className="hover:underline">FAQ</a></li>
-              <li><a href="#" className="hover:underline">Book now</a></li>
+              <li><a href="#home" className="hover:underline">Home</a></li>
+              <li><a href="#about" className="hover:underline">About us</a></li>
+              <li><a href="#programs" className="hover:underline">Services</a></li>
+              <li><a href="#testimonials" className="hover:underline">Testimonials</a></li>
+              <li><a href="#faq" className="hover:underline">FAQ</a></li>
+              <li><a href="#contact" className="hover:underline">Book now</a></li>
             </ul>
           </div>
         </div>

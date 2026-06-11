@@ -3,3 +3,7 @@
 @theme{
     --font-gelasio: "Gelasio", serif;
 }
+
+html{
+    scroll-behavior: smooth;
+}
