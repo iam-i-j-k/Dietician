@@ -40,27 +40,35 @@ const App = () => {
   };
 
   const handleSubmit = async () => {
+    console.log("Submitting contact form", formData);
     if (!formData.name || !formData.email || !formData.phone) {
+      console.warn("Contact form validation failed", {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+      });
       setFormStatus("error");
       return;
     }
     setFormStatus("sending");
     try {
-      const res = await fetch("https://dietician-cafh.onrender.com/api/contact", {
+      const res = await fetch("http://localhost:3001/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
       const data = await res.json();
+      console.log("Contact form response", res.status, data);
       if (res.ok) {
+        console.log("Contact form submitted successfully");
         setFormStatus("success");
         setFormData({ name: "", email: "", phone: "", age: "", weight: "", height: "", service: "", reason: "", message: "" });
       } else {
-        console.error(data.error);
+        console.error("Contact form server error", data);
         setFormStatus("error");
       }
     } catch (err) {
-      console.error(err);
+      console.error("Contact form submit failed", err);
       setFormStatus("error");
     }
   };
