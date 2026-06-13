@@ -25,8 +25,11 @@ const faqs = [
 
 const App = () => {
   const [openIndex, setOpenIndex] = useState(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const toggle = (i) => setOpenIndex(openIndex === i ? null : i);
+  const toggleMobileMenu = () => setMobileMenuOpen((open) => !open);
+  const closeMobileMenu = () => setMobileMenuOpen(false);
 
   // Add this state at the top of your App component, with the existing useState
   const [formData, setFormData] = useState({
@@ -88,10 +91,32 @@ const App = () => {
           <a href="#faq" className="hover:text-green-700">FAQ</a>
           <a href="#contact" className="hover:text-green-700">Contact</a>
         </div>
-        <a href="#contact" className="bg-[#3a5a40] text-white px-4 md:px-6 py-2 rounded-full text-sm font-semibold hover:bg-[#2c4430] transition-colors">
+
+        <button
+          type="button"
+          onClick={toggleMobileMenu}
+          className="inline-flex items-center justify-center md:hidden p-2 rounded-full text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#3a5a40]"
+          aria-expanded={mobileMenuOpen}
+          aria-label="Toggle menu"
+        >
+          <span className="text-2xl">{mobileMenuOpen ? "✕" : "☰"}</span>
+        </button>
+
+        <a href="#contact" className="hidden md:inline-block bg-[#3a5a40] text-white px-4 md:px-6 py-2 rounded-full text-sm font-semibold hover:bg-[#2c4430] transition-colors">
           Book now
         </a>
       </nav>
+
+      <div className={`md:hidden bg-white shadow-sm border-b border-gray-200 overflow-hidden transition-all duration-300 ${mobileMenuOpen ? 'max-h-96 opacity-100 pointer-events-auto' : 'max-h-0 opacity-0 pointer-events-none'}`}>
+        <div className="px-4 pb-4 pt-2 space-y-2">
+          <a href="#home" onClick={closeMobileMenu} className="block text-sm font-medium text-gray-700 hover:text-green-700">Home</a>
+          <a href="#about" onClick={closeMobileMenu} className="block text-sm font-medium text-gray-700 hover:text-green-700">About me</a>
+          <a href="#programs" onClick={closeMobileMenu} className="block text-sm font-medium text-gray-700 hover:text-green-700">Services</a>
+          <a href="#testimonials" onClick={closeMobileMenu} className="block text-sm font-medium text-gray-700 hover:text-green-700">Testimonials</a>
+          <a href="#faq" onClick={closeMobileMenu} className="block text-sm font-medium text-gray-700 hover:text-green-700">FAQ</a>
+          <a href="#contact" onClick={closeMobileMenu} className="block text-sm font-semibold text-white bg-[#3a5a40] text-center py-3 rounded-full hover:bg-[#2c4430]">Book now</a>
+        </div>
+      </div>
 
       <section className="bg-[url('/bg.png')] px-4 md:px-8 py-10 md:py-16 flex flex-col md:flex-row items-center mx-auto gap-8 md:gap-12">
         <div className="w-full md:w-1/2 space-y-6 text-center md:text-left">
