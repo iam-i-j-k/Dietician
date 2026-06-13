@@ -267,7 +267,7 @@ const App = () => {
             </ul>
           </div>
 
-          <div className="bg-[#fce5c8] rounded-xl p-6 md:p-8 shadow-sm flex flex-col items-center h-56 md:h-64 border border-[#f5d5ac] sm:col-span-2 md:col-span-1 sm:w-1/2 md:w-full mx-auto">
+          <div className="bg-[#fce5c8] rounded-xl p-6 md:p-8 shadow-sm flex flex-col items-center h-56 md:h-64 border border-[#f5d5ac]">
             <h3 className="text-xl md:text-2xl font-bold text-center">Pregnancy Nutrition</h3>
             <ul className="flex-1 flex flex-col justify-center space-y-1 md:space-y-2 text-base md:text-lg text-gray-700 text-center mt-4">
               <li>Prenatal</li>
