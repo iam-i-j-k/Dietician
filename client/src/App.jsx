@@ -541,9 +541,6 @@ const App = () => {
             </div>
             <div className="relative">
               <img src="/transformation.png" alt="Amazing client Transformation" className="w-full h-auto rounded-xl shadow" />
-              <div className="absolute bottom-4 md:bottom-6 left-0 right-0 text-center">
-                <h3 className="text-white text-2xl md:text-3xl font-bold drop-shadow-md">Amazing client<br/>Transformation</h3>
-              </div>
             </div>
           </div>
           
